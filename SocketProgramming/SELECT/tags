@@ -1,0 +1,37 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/nfs/homes/atucci/Desktop/pipes-and-socket/SocketProgramming/SELECT/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+PORT	select.cpp	/^#define PORT /;"	d	file:
+SELECTSERVER_HPP	SelectServer.hpp	/^#define SELECTSERVER_HPP$/;"	d
+SelectServer	SelectServe.cpp	/^SelectServer::SelectServer(int port) : listener(-1), port(port), fdmax(0) {$/;"	f	class:SelectServer
+SelectServer	SelectServer.hpp	/^class SelectServer$/;"	c
+Send DELETE Request (not implemented)	index.html	/^    <h2>Send DELETE Request (not implemented)<\/h2>$/;"	i
+Send GET Request	index.html	/^    <h2>Send GET Request<\/h2>$/;"	i
+Send POST Request	index.html	/^    <h2>Send POST Request<\/h2>$/;"	i
+Upload File	index.html	/^    <h2>Upload File<\/h2>$/;"	i
+Webserv Test Interface	index.html	/^    <h1>Webserv Test Interface<\/h1>$/;"	h
+buildHttpResponse	SelectServe.cpp	/^std::string SelectServer::buildHttpResponse() {$/;"	f	class:SelectServer	typeref:typename:std::string
+client_buffers	SelectServer.hpp	/^	std::map<int, std::string> client_buffers;$/;"	m	class:SelectServer	typeref:typename:std::map<int,std::string>
+data	index.html	/^        <input type="text" id="data" name="data" value="example">$/;"	I
+fdmax	SelectServer.hpp	/^	int fdmax;$/;"	m	class:SelectServer	typeref:typename:int
+handleClientMessage	SelectServe.cpp	/^void SelectServer::handleClientMessage(int client_fd) {$/;"	f	class:SelectServer	typeref:typename:void
+handleNewConnection	SelectServe.cpp	/^void SelectServer::handleNewConnection() {$/;"	f	class:SelectServer	typeref:typename:void
+initSocket	SelectServe.cpp	/^void SelectServer::initSocket() {$/;"	f	class:SelectServer	typeref:typename:void
+listener	SelectServer.hpp	/^	int listener;$/;"	m	class:SelectServer	typeref:typename:int
+main	main.cpp	/^int main() {$/;"	f	typeref:typename:int
+main	select.cpp	/^int main()$/;"	f	typeref:typename:int
+master_set	SelectServer.hpp	/^	fd_set master_set;$/;"	m	class:SelectServer	typeref:typename:fd_set
+message	index.html	/^        <input type="text" id="message" name="message" value="hello">$/;"	I
+port	SelectServer.hpp	/^	int port;$/;"	m	class:SelectServer	typeref:typename:int
+read_fds	SelectServer.hpp	/^	fd_set read_fds;$/;"	m	class:SelectServer	typeref:typename:fd_set
+run	SelectServe.cpp	/^void SelectServer::run() {$/;"	f	class:SelectServer	typeref:typename:void
+runLoop	SelectServe.cpp	/^void SelectServer::runLoop() {$/;"	f	class:SelectServer	typeref:typename:void
+~SelectServer	SelectServe.cpp	/^SelectServer::~SelectServer() {$/;"	f	class:SelectServer

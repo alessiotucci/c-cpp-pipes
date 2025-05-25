@@ -9,21 +9,25 @@
 
 #define PORT 8080       // Port to listen on
 
-int main() {
+int main()
+{
     int listener;               // Listening socket descriptor
     struct sockaddr_in addr;    // Server address structure
-    fd_set master_set, read_fds;
+    fd_set master_set;
+	fd_set read_fds;
     int fdmax;                  // Keep track of the highest descriptor value
 
     // Create a TCP socket
-    if ((listener = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+    if ((listener = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+	{
         perror("socket");
         exit(EXIT_FAILURE);
     }
 
     // Allow the socket address to be reused immediately after program termination
     int yes = 1;
-    if (setsockopt(listener, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)) < 0) {
+    if (setsockopt(listener, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)) < 0)
+	{
         perror("setsockopt");
         exit(EXIT_FAILURE);
     }
@@ -34,13 +38,15 @@ int main() {
     addr.sin_addr.s_addr = INADDR_ANY; // Listen on all available interfaces
     addr.sin_port = htons(PORT);
 
-    if (bind(listener, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
+    if (bind(listener, (struct sockaddr *)&addr, sizeof(addr)) < 0)
+	{
         perror("bind");
         exit(EXIT_FAILURE);
     }
 
     // Mark the socket as listening with a backlog of 10 connections
-    if (listen(listener, 10) < 0) {
+    if (listen(listener, 10) < 0)
+	{
         perror("listen");
         exit(EXIT_FAILURE);
     }
@@ -53,16 +59,16 @@ int main() {
     std::cout << "select()-based server listening on port " << PORT << std::endl;
 
     // Main server loop
-    while (true) {
+    while (true)
+	{
         // We need to pass a temporary copy of master_set because select() modifies it.
         read_fds = master_set;
-        
         // Wait indefinitely for one or more socket descriptors to become ready
-        if (select(fdmax + 1, &read_fds, NULL, NULL, NULL) < 0) {
+        if (select(fdmax + 1, &read_fds, NULL, NULL, NULL) < 0)
+		{
             perror("select");
             exit(EXIT_FAILURE);
         }
-        
         // Check which file descriptors are ready
         for (int i = 0; i <= fdmax; i++) {
             if (FD_ISSET(i, &read_fds)) {

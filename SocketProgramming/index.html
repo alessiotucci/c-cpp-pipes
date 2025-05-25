@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webserv Server-Side Cookie Test</title>
+</head>
+<body>
+    <h1>Webserv Test Interface</h1>
+
+    <h2>Send GET Request</h2>
+    <form action="/get_test" method="GET">
+        <label for="data">Data:</label>
+        <input type="text" id="data" name="data" value="example">
+        <input type="submit" value="Send GET">
+    </form>
+
+    <h2>Send POST Request</h2>
+    <form action="/post_test" method="POST">
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message" value="hello">
+        <input type="submit" value="Send POST">
+    </form>
+
+    <h2>Send DELETE Request (not implemented)</h2>
+
+    <h2>Upload File</h2>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+
+</body>
+</html>
+
