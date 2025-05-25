@@ -7,33 +7,39 @@
 #include <sstream>
 #include <arpa/inet.h>
 
-SelectServer::SelectServer(int port) : listener(-1), port(port), fdmax(0) {
-    FD_ZERO(&master_set);
-    FD_ZERO(&read_fds);
+SelectServer::SelectServer(int port) : listener(-1), port(port), fdmax(0)
+{
+	FD_ZERO(&master_set);
+	FD_ZERO(&read_fds);
 }
 
-SelectServer::~SelectServer() {
-    if (listener != -1)
-        close(listener);
+SelectServer::~SelectServer()
+{
+	if (listener != -1)
+		close(listener);
 }
 
-void SelectServer::run() {
-    initSocket();
-    runLoop();
+void SelectServer::run()
+{
+	initSocket();
+	runLoop();
 }
 
-void SelectServer::initSocket() {
+void SelectServer::initSocket()
+{
     struct sockaddr_in addr;
 
     // Create socket
-    if ((listener = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+    if ((listener = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+	{
         perror("socket");
         exit(EXIT_FAILURE);
     }
 
     // Allow address reuse
     int yes = 1;
-    if (setsockopt(listener, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)) < 0) {
+    if (setsockopt(listener, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)) < 0)
+	{
         perror("setsockopt");
         exit(EXIT_FAILURE);
     }
@@ -202,7 +208,8 @@ void SelectServer::handleClientMessage(int client_fd)
 }
 
 
-std::string SelectServer::buildHttpResponse() {
+std::string SelectServer::buildHttpResponse()
+{
     std::ifstream file("index.html");
     std::ostringstream body;
 

@@ -13,9 +13,10 @@ class SelectServer
 private:
 	int listener;
 	int port;
+	int fdmax;
+
 	fd_set master_set;
 	fd_set read_fds;
-	int fdmax;
 
 	std::map<int, std::string> client_buffers;
 
