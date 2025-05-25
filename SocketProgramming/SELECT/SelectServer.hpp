@@ -24,6 +24,12 @@ private:
 	void handleNewConnection();
 	void handleClientMessage(int client_fd);
 	std::string buildHttpResponse();
+	
+
+	//methods
+	std::string parseRequestLine(const std::string& request, std::string& method, std::string& path);
+	void handleGet(int client_fd, const std::string& path);
+	void handlePost(int client_fd, const std::string& path, const std::string& body);
 
 public:
 	SelectServer(int port);
